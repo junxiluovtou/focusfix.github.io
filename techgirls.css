@@ -93,3 +93,14 @@ nav {
 .nav-link:hover{
     background-color:palevioletred;
 }
+
+.link{
+    text-decoration: None;
+    color: palevioletred;
+
+}
+
+.link:hover{
+    text-decoration: underline;
+    color:pink;
+}

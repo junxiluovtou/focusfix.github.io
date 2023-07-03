@@ -1,24 +1,263 @@
-<!--<!DOCTYPE ht ml>-->
-<!--<html>-->
-<!--<head>-->
-<link rel="stylesheet" href="techgirls.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-<!--</head>-->
-<nav id = "nav">
-<!--    <a class="nav-link" href="step1.html"><span class="fas fa-solid fa-gear"></span> Settings</a>-->
-<!--    <a class="nav-link" href="step1.html"><span class="fas fa-sharp fa-solid fa-volume"></span> Sound</a>-->
-    <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
-    <a class="nav-link" href="step1.html"><span class="fas fa-solid fa-volume-up"></span> Sound</a>
-</nav>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
+        .container {
+            width: 300px;
+            padding: 16px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #fc8dbe;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+    <script>
+        /*
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+
+
+            if (username === "" || password === "") {
+                alert("Please enter both username and password.");
+                return false;
+            }
+
+            return true;
+        }*/
+    </script>
+</head>
 <body>
-<h1>FocusFix.io</h1>
+<div class="container">
+    <h2>Login</h2>
+    <div  >
+        <label for="un">Username</label>
+        <input type="text" id="un" name="un" placeholder="Your username" required>
 
-<img src="mascot1.gif" alt="character">
-<p id = "p">Stay on top of tasks!</p>
+        <label for="pd">Password</label>
+        <input type="password" id="pd" name="pd" placeholder="Your password" required>
 
-<p><a class="button" id = "button" href="step1.html">Open</a></p>
+        <button  onclick="handleAuthClick()">Login</button>
+
+        <!--button id="authorize_button" onclick="handleAuthClick()">Authorize</button-->
+        <!--button id="signout_button" onclick="handleSignoutClick()">Sign Out</button-->
+
+    </div>
+
+    <script>
+
+        var return_result = false;
 
 
+        const CLIENT_ID = '76879871515-qspjjjgp626l4f0r6u6cefsea7qt9u6j.apps.googleusercontent.com';
+        const API_KEY = 'AIzaSyDvSAKyHfebMqMyZDRo0dlW_RWctfqISZ8';
+
+        // Discovery doc URL for APIs used by the quickstart
+        const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+
+        // Authorization scopes required by the API; multiple scopes can be
+        // included, separated by spaces.
+        const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+
+        let tokenClient;
+        let gapiInited = false;
+        let gisInited = false;
+
+        //document.getElementById('authorize_button').style.visibility = 'hidden';
+        //document.getElementById('signout_button').style.visibility = 'hidden';
+
+        /**
+         * Callback after api.js is loaded.
+         */
+        function gapiLoaded() {
+            gapi.load('client', initializeGapiClient);
+        }
+
+        /**
+         * Callback after the API client is loaded. Loads the
+         * discovery doc to initialize the API.
+         */
+        async function initializeGapiClient() {
+            await gapi.client.init({
+                apiKey: API_KEY,
+                discoveryDocs: [DISCOVERY_DOC],
+            });
+            gapiInited = true;
+            maybeEnableButtons();
+        }
+
+        /**
+         * Callback after Google Identity Services are loaded.
+         */
+        function gisLoaded() {
+            tokenClient = google.accounts.oauth2.initTokenClient({
+                client_id: CLIENT_ID,
+                scope: SCOPES,
+                callback: '', // defined later
+            });
+            gisInited = true;
+            maybeEnableButtons();
+        }
+
+        /**
+         * Enables user interaction after all libraries are loaded.
+         */
+        function maybeEnableButtons() {
+            if (gapiInited && gisInited) {
+                //document.getElementById('authorize_button').style.visibility = 'visible';
+            }
+        }
+
+        /**
+         *  Sign in the user upon button click.
+         */
+        function handleAuthClick() {
+
+
+            tokenClient.callback = async (resp) => {
+                if (resp.error !== undefined) {
+                    throw (resp);
+                }
+                //document.getElementById('signout_button').style.visibility = 'visible';
+                //ocument.getElementById('authorize_button').innerText = 'Refresh';
+                await listMajors().then(
+                    ()=>{
+
+                        console.log(return_result);
+
+                        //window.location = "index.html";
+                        if(return_result) {
+                            window.location = "index.html";
+                        }
+                        else
+                        {
+                            alert("username or password wrong!");
+                        }
+                    }
+
+
+                );
+            };
+
+            if (gapi.client.getToken() === null) {
+                // Prompt the user to select a Google Account and ask for consent to share their data
+                // when establishing a new session.
+                tokenClient.requestAccessToken({prompt: 'consent'});
+            } else {
+                // Skip display of account chooser and consent dialog for an existing session.
+                tokenClient.requestAccessToken({prompt: ''});
+            }
+        }
+
+        /**
+         *  Sign out the user upon button click.
+         */
+        function handleSignoutClick() {
+            const token = gapi.client.getToken();
+            if (token !== null) {
+                google.accounts.oauth2.revoke(token.access_token);
+                gapi.client.setToken('');
+                document.getElementById('content').innerText = '';
+                document.getElementById('authorize_button').innerText = 'Authorize';
+                document.getElementById('signout_button').style.visibility = 'hidden';
+            }
+        }
+
+        /**
+         * Print the names and majors of students in a sample spreadsheet:
+         * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+         */
+        async function listMajors() {
+            let response;
+            try {
+                // Fetch first 10 files
+                response = await gapi.client.sheets.spreadsheets.values.get({
+                    spreadsheetId: '1LrHwJn76RsdX_cYXotcZyRdkBT2pLyGFawQECmcJo60',
+                    range: 'Sheet1!A:B',
+                });
+            } catch (err) {
+                document.getElementById('content').innerText = err.message;
+                return;
+            }
+            const range = response.result;
+            if (!range || !range.values || range.values.length == 0) {
+                document.getElementById('content').innerText = 'No values found.';
+                return;
+            }
+            // Flatten to string to display
+            const output = range.values.reduce(
+                (str, row) => `${str}${row[0]}, ${row[1]}\n`,
+                '\n');
+            //document.getElementById('content').innerText = output;
+            //console.log(output[0]);
+            console.log(range.values.length);
+            console.log(range.values[0][0]);
+            console.log(range.values[0][1]);
+
+
+            var username = document.getElementById("un").value;
+            var password = document.getElementById("pd").value;
+
+            return_result = false;
+
+            for(var i=0; i< range.values.length; i++)
+            {
+                if( username === range.values[i][0]
+                    && password === range.values[i][1]
+                )
+                {
+                    return_result = true;
+
+
+                }
+
+            }
+
+
+
+
+        }
+
+
+
+
+    </script>
+    <!--script src="https://script.google.com/macros/s/SCRIPT_ID/exec"></script-->
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+</div>
 </body>
-<!--</html>-->
+</html>

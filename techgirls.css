@@ -20,11 +20,11 @@ p{
     color: palevioletred;
 }
 
-body {
-    font-size: 20px;
-    padding:0px 0px 0px 300px;
-    background-color: #FFF3F5
-}
+/*body {*/
+/*    font-size: 20px;*/
+/*    padding:0px 0px 0px 300px;*/
+/*    background-color: #FFF3F5*/
+/*}*/
 
 form {
     width: 450px;

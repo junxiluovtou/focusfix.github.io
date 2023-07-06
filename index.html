@@ -43,71 +43,84 @@
         button:hover {
             opacity: 0.8;
         }
+
+        @media only screen and (orientation:portrait){
+            #contents { display:block; }
+            #turn { display: none; }
+        }
+        @media only screen and (orientation:landscape){
+            #contents {display:none;}
+            #turn {display:block;}
+        }
     </style>
 
 <body>
-<div class="container">
-    <h2>Login</h2>
-    <div>
-        <label for="un">Username</label>
-        <input type="text" id="un" name="un" placeholder="Your username" required>
+    <div id = "turn">please rotate your mobile</div>
+    <div id = "contents">
+        <div class="container">
+            <h2>Login</h2>
+            <div>
+                <label for="un">Username</label>
+                <input type="text" id="un" name="un" placeholder="Your username" required>
 
-        <label for="pd">Password</label>
-        <input type="password" id="pd" name="pd" placeholder="Your password" required>
+                <label for="pd">Password</label>
+                <input type="password" id="pd" name="pd" placeholder="Your password" required>
 
-        <button  onclick="handleAuthClick()">Login</button>
+                <button  onclick="handleAuthClick()">Login</button>
 
-        <!--button id="authorize_button" onclick="handleAuthClick()">Authorize</button-->
-        <!--button id="signout_button" onclick="handleSignoutClick()">Sign Out</button-->
-    </div>
+                <!--button id="authorize_button" onclick="handleAuthClick()">Authorize</button-->
+                <!--button id="signout_button" onclick="handleSignoutClick()">Sign Out</button-->
+            </div>
 
-    <script>
-        var return_result = false;
-        var loadedData;
-        const CLIENT_ID = '76879871515-qspjjjgp626l4f0r6u6cefsea7qt9u6j.apps.googleusercontent.com';
-        const API_KEY = 'AIzaSyDvSAKyHfebMqMyZDRo0dlW_RWctfqISZ8';
+            <script>
+                var return_result = false;
+                var loadedData;
+                const CLIENT_ID = '76879871515-qspjjjgp626l4f0r6u6cefsea7qt9u6j.apps.googleusercontent.com';
+                const API_KEY = 'AIzaSyDvSAKyHfebMqMyZDRo0dlW_RWctfqISZ8';
 
-        const start = () => {
-            gapi.client.init({
-                'apiKey': API_KEY,
-                'discoveryDocs': ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-            }).then(() => {
-                return gapi.client.sheets.spreadsheets.values.get({
-                    spreadsheetId: '1LrHwJn76RsdX_cYXotcZyRdkBT2pLyGFawQECmcJo60',
-                    range: 'Sheet1!A:B', // for example: List 1!A1:B6
-                })
-            }).then((response) => {
-                // parse the response data
-                loadedData = response.result.values;
-            });
-        };
+                const start = () => {
+                    gapi.client.init({
+                        'apiKey': API_KEY,
+                        'discoveryDocs': ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+                    }).then(() => {
+                        return gapi.client.sheets.spreadsheets.values.get({
+                            spreadsheetId: '1LrHwJn76RsdX_cYXotcZyRdkBT2pLyGFawQECmcJo60',
+                            range: 'Sheet1!A:B', // for example: List 1!A1:B6
+                        })
+                    }).then((response) => {
+                        // parse the response data
+                        loadedData = response.result.values;
+                    });
+                };
 
-        gapi.load('client', start);
+                gapi.load('client', start);
 
-        function handleAuthClick() {
-            var username = document.getElementById("un").value;
-            var password = document.getElementById("pd").value;
+                function handleAuthClick() {
+                    var username = document.getElementById("un").value;
+                    var password = document.getElementById("pd").value;
 
-            return_result = false;
+                    return_result = false;
 
-            for(var i=0; i< loadedData.length; i++)
-            {
-                if( username === loadedData[i][0]
-                    && password === loadedData[i][1])
-                {
-                    return_result = true;
+                    for(var i=0; i< loadedData.length; i++)
+                    {
+                        if( username === loadedData[i][0]
+                            && password === loadedData[i][1])
+                        {
+                            return_result = true;
+                        }
+
+                    }
+                    if(return_result) {
+                        window.location = "home.html";
+                    } else {
+                        alert("username or password wrong!");
+                    }
+
                 }
 
-            }
-            if(return_result) {
-                window.location = "home.html";
-            } else {
-                alert("username or password wrong!");
-            }
+            </script>
+        </div>
+    </div>
 
-        }
-
-    </script>
-</div>
 </body>
 </html>

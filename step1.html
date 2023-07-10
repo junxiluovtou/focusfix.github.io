@@ -19,8 +19,6 @@
     .form-popup {
         display: none;
         position: fixed;
-        bottom: 0;
-        right: 15px;
         border: 3px solid #f1f1f1;
         z-index: 9;
     }
@@ -37,6 +35,12 @@
         document.getElementById("myForm").style.display = "none";
     }
 </script>
+<script>
+    function myFun() {
+        document.getElementById("add").innerHTML ="hjello";
+    }
+</script>
+
 <div>
     <a><button style='font-size:50px' id="b1"> <i class='fas fa-file-alt'></i></button></a>
     <label for="b1"><input class="label" value="Homework"/></label>
@@ -46,37 +50,24 @@
     <label for="b1"><input class="label" value="English"/></label>
 </div>
 
-
-<!--<script src="../script/jquery-2.1.4.js"></script>-->
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        &lt;!&ndash; maybe let say define your data (questions) here &ndash;&gt;-->
-<!--        var data =-->
-<!--            [-->
-<!--                {-->
-<!--                    &lt;!&ndash;example ... &ndash;&gt;-->
-<!--                }-->
-<!--            ]-->
-<!--        $("#btn_1").click(function() {-->
-<!--            &lt;!&ndash; do some logic with the data above. Process it then print the new question by update your text &ndash;&gt;-->
-<!--            $('#TxtArea').val(data);-->
-<!--        });-->
-
-<!--</script>-->
 <p><a class="button2" onclick="openForm()" id="b1">Add List</a></p>
 <!--<button class="open-button" onclick="openForm()">Open Form</button>-->
 
 <div class="form-popup" id="myForm">
     <form action="/action_page.php" class="form-container">
-        <h1>Add List</h1>
+        <h1>Login</h1>
 
-        <label for="email"><b>Title</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="name">Name*</label>
+        <input type="text" placeholder="Name:" id="name" required>
 
-        <label for="psw"><b>Description</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="date">Due Date*</label>
+        <input type="date" id="date" name="date">
 
-        <button type="submit" class="btn">Login</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <label for="des">Description</label>
+        <input type="text" placeholder="Description:" id="des">
+
+
+        <button class ="submit" href = "step1.html" id = "add" onclick="myFun()">Add</button>
+        <button type="button" class="button" onclick="closeForm()">Cancel</button>
     </form>
 </div>

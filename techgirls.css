@@ -1,10 +1,10 @@
 /*@media all and (orientation:portrait){*/
 h1{
-    color:pink;
+    color: #c0e7ff;
     text-align: center;
 }
 h2{
-    color: pink;
+    color: #c0e7ff;
     text-align: center;
 }
 img{
@@ -17,7 +17,7 @@ p{
     text-align: left;
     margin-top: 50px;
     margin-bottom:50px;
-    color: palevioletred;
+    color: #70a2db;
 }
 
 body {
@@ -56,15 +56,15 @@ label {
     text-decoration: none;
     display: inline-block;
     padding: 20px 40px;
-    background: #fc8dbe;
+    background: #70a2db;
     color: white;
     border-radius: 4px;
-    border: 2px solid #fc8dbe;
+    border: 2px solid #70a2db;
 }
 
 .button:hover {
-    border-color: palevioletred;
-    background: palevioletred;
+    border-color: #70a2db;
+    background: #70a2db;
     color: white;
 }
 .button2 {
@@ -72,15 +72,15 @@ label {
     text-decoration: none;
     /*display: inline-block;*/
     padding: 20px 40px;
-    background: #fc8dbe;
+    background: #70a2db;
     color: white;
     border-radius: 4px;
-    border: 2px solid #fc8dbe;
+    border: 2px solid #70a2db;
 }
 
 .button2:hover {
-    border-color: palevioletred;
-    background: palevioletred;
+    border-color:   #70a2db;
+    background:   #70a2db;
     color: white;
 }
 
@@ -88,20 +88,20 @@ label {
     border:none;
     text-decoration: none;
     padding: 40px 40px;
-    background: #fc8dbe
+    background:   #70a2db;
     color: white;
     border-radius: 4px;
-    border: 2px solid #fc8dbe
+    border: 2px solid   #70a2db;
 }
 
 .button3:hover {
-    border-color: palevioletred;
-    background: palevioletred;
+    border-color:   #70a2db;
+    background:   #70a2db;
     color: white;
 }
 
 nav {
-    background-color: #fc8dbe;
+    background-color:   #70a2db;
     text-align:left;
     position:fixed;
     top:0;
@@ -121,21 +121,21 @@ nav {
 
 }
 .active{
-    background-color:palevioletred;
+    background-color:  #70a2db;
 }
 .nav-link:hover{
-    background-color:palevioletred;
+    background-color:  #70a2db;
 }
 
 .link{
     text-decoration: None;
-    color: palevioletred;
+    color:   #70a2db;  #70a2db;  #70a2db;  #70a2db;
 
 }
 
 .link:hover{
     text-decoration: underline;
-    color:pink;
+    color: #c0e7ff;
 }
 input[type=text], input[type=password] {
     width: 100%;

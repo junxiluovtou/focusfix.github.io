@@ -28,33 +28,47 @@
 
 <script>
     function openForm() {
-        document.getElementById("myForm").style.display = "block";
+        document.getElementById("form").style.display = "block";
     }
 
     function closeForm() {
-        document.getElementById("myForm").style.display = "none";
+        document.getElementById("form").style.display = "none";
     }
 </script>
 <script>
     function myFun() {
-        document.getElementById("add").innerHTML ="hjello";
+        // Create a new button element
+        var button = document.createElement('button');
+
+        // Set the button text
+        button.innerText = 'Click Me';
+
+        // Assign an onclick event handler
+        button.onclick = function() {
+            alert('Button clicked!');
+        };
+
+        // Append the button to the document body
+        document.body.appendChild(button);
     }
 </script>
 
-<div>
-    <a><button style='font-size:50px' id="b1"> <i class='fas fa-file-alt'></i></button></a>
-    <label for="b1"><input class="label" value="Homework"/></label>
-</div>
-<div>
-    <button style='font-size:50px' id="b1"> <i class='fas fa-file-alt'></i></button>
-    <label for="b1"><input class="label" value="English"/></label>
-</div>
 
 <p><a class="button2" onclick="openForm()" id="b1">Add List</a></p>
-<!--<button class="open-button" onclick="openForm()">Open Form</button>-->
+<div>
+    <button style="font-size: 50px;" id="b1" class="icon-button">
+        <span class="fas fa-file-alt"></span>
+        <label id="label" for="b1"><textarea>Homework</textarea></label>
+    </button>
+</div>
+<div>
+    <button style ='font-size:50px' id = 'b1' class="icon-button">
+        <span class="fas fa-file-alt"></span><label id = 'label' for="b1"><textarea>English</textarea></label>
+    </button>
+</div>
 
-<div class="form-popup" id="myForm">
-    <form action="/action_page.php" class="form-container">
+<div class="form-popup" id="form">
+    <form class="form-container">
         <h1>Login</h1>
 
         <label for="name">Name*</label>
@@ -66,8 +80,63 @@
         <label for="des">Description</label>
         <input type="text" placeholder="Description:" id="des">
 
-
-        <button class ="submit" href = "step1.html" id = "add" onclick="myFun()">Add</button>
+        <input type="submit" value="Submit" />
         <button type="button" class="button" onclick="closeForm()">Cancel</button>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('form');
+
+            form.onsubmit = function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                var name = document.getElementById('name').value;
+                createList(name);
+            };
+
+            function createList(text) {
+                var newDiv = document.createElement('div');
+
+
+                // var newButton = document.createElement('textarea');
+                // newButton.innerText = text;
+                var button = document.createElement('button');
+
+
+                var icon = document.createElement('i');
+                icon.classList.add('fas', 'fa-file-alt');
+                icon.style.fontSize = '50px';
+
+                // Create the label element
+                var label = document.createElement('textarea');
+                label.innerText = text;
+
+                // Append the icon and label to the button
+                button.appendChild(icon);
+                button.appendChild(label);
+                closeForm();
+
+                // Append the button to the document body
+                document.body.appendChild(button);
+                document.body.appendChild(newButton);
+                function createDiv() {
+                    // Create the div element
+                    var div = document.createElement('div');
+
+                    // Set some attributes and styles for the div
+                    div.id = 'myDiv';
+                    div.classList.add('my-class');
+                    div.style.width = '200px';
+                    div.style.height = '200px';
+                    div.style.backgroundColor = 'blue';
+                    div.appendChild(button);
+                    div.appendChild(newButton);
+                    document.body.appendChild(div);
+                }
+
+
+            }
+
+        });
+    </script>
 </div>

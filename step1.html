@@ -15,5 +15,30 @@
 </nav>
 
 <h2>HomePage</h2>
-<p><a class="button2" id = "button">Add List</a></p>
+<!--<div id="first">-->
+<!--    <h2 id ="text">HomePage</h2>-->
+<!--</div>-->
 
+
+<p><a class="button2" id="b1">Add List</a></p>
+<div>
+    <p><a class="button2" id="b1">Homework</a></p>
+    <label for="b1"><input class="label" id="b2" value="Homework"/></label>
+</div>
+
+<script src="../script/jquery-2.1.4.js"></script>
+<script>
+    $(document).ready(function() {
+        <!-- maybe let say define your data (questions) here -->
+        var data =
+            [
+                {
+                    <!--example ... -->
+                }
+            ]
+        $("#btn_1").click(function() {
+            <!-- do some logic with the data above. Process it then print the new question by update your text -->
+            $('#TxtArea').val(data);
+        });
+
+</script>

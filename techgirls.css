@@ -1,5 +1,5 @@
 h1{
-    color: #c0e7ff;
+    color: #417ea2;
     text-align: center;
 }
 h2{
@@ -62,7 +62,7 @@ label {
 }
 
 .button:hover {
-    border-color: #70a2db;
+    border-color: #37689b;
     background: #70a2db;
     color: white;
 }
@@ -78,7 +78,7 @@ label {
 }
 
 .button2:hover {
-    border-color:   #70a2db;
+    border-color:   #37689b;
     background:   #70a2db;
     color: white;
 }
@@ -94,7 +94,7 @@ label {
 }
 
 .button3:hover {
-    border-color:   #70a2db;
+    border-color: #37689b;
     background:   #70a2db;
     color: white;
 }

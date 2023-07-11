@@ -57,13 +57,13 @@
 <p><a class="button2" onclick="openForm()" id="b1">Add List</a></p>
 <div>
     <button style="font-size: 50px;" id="b1" class="icon-button">
-        <span class="fas fa-file-alt"></span>
-        <label id="label" for="b1"><textarea>Homework</textarea></label>
+        <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>Homework</textarea></label></span>
+<!--        <label id="label" for="b1"><textarea>Homework</textarea></label>-->
     </button>
 </div>
 <div>
-    <button style ='font-size:50px' id = 'b1' class="icon-button">
-        <span class="fas fa-file-alt"></span><label id = 'label' for="b1"><textarea>English</textarea></label>
+    <button style="font-size: 50px;" id="b1" class="icon-button">
+        <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>English</textarea></label></span>
     </button>
 </div>
 
@@ -114,6 +114,7 @@
                 // Append the icon and label to the button
                 button.appendChild(icon);
                 button.appendChild(label);
+                button.style.marginRight = '15px';
                 closeForm();
 
                 // Append the button to the document body
@@ -124,14 +125,15 @@
                     var div = document.createElement('div');
 
                     // Set some attributes and styles for the div
-                    div.id = 'myDiv';
-                    div.classList.add('my-class');
+                    div.id = 'div';
+                    div.classList.add('class');
                     div.style.width = '200px';
                     div.style.height = '200px';
                     div.style.backgroundColor = 'blue';
                     div.appendChild(button);
                     div.appendChild(newButton);
                     document.body.appendChild(div);
+
                 }
 
 

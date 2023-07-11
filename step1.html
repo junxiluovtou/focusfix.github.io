@@ -64,12 +64,17 @@
     </a>
 </div>
 <div>
-    <a href="reminders.html">
     <button style="font-size: 50px;" id="b1" class="icon-button">
         <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>English</textarea></label></span>
     </button>
-    </a>
 </div>
+
+<script>
+    function saveButtonValue(buttonValue) {
+        localStorage.setItem('buttonValue', buttonValue);
+    }
+</script>
+
 
 <div class="form-popup" id="form">
     <form class="form-container">
@@ -99,9 +104,6 @@
             };
 
             function createList(text) {
-
-                // var newButton = document.createElement('textarea');
-                // newButton.innerText = text;
                 var button = document.createElement('button');
 
 
@@ -117,6 +119,7 @@
                 button.appendChild(icon);
                 button.appendChild(label);
                 button.style.marginRight = '15px';
+                saveButtonValue(text);
                 closeForm();
 
                 // Append the button to the document body
@@ -129,4 +132,5 @@
 
         });
     </script>
+
 </div>

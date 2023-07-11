@@ -2,8 +2,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
 <nav>
-    <!--    <a class="nav-link" href="step1.html"><span class="fas fa-solid fa-gear"></span> Settings</a>-->
-    <!--    <a class="nav-link" href="step1.html"><span class="fas fa-sharp fa-solid fa-volume"></span> Sound</a>-->
     <h1>Menu</h1>
     <a class="nav-link" href="step1.html"><span class="fa-solid fa-house"></span> Home</a>
     <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
@@ -14,3 +12,18 @@
     <a class="nav-link" href="premium.html"> Premium Subscription</a>
 
 </nav>
+
+<nav1>
+    <a class="active nav-link" href="reminders.html">Homework</a>
+    <a class="nav-link" href="english.html">English</a>
+    <a class="nav-link" href="addedlist.html"><span id="storedValue"></span></a>
+</nav1>
+
+<h1>Tasks</h1>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var storedValue = localStorage.getItem('buttonValue');
+        document.getElementById('storedValue').innerText = storedValue;
+    });
+</script>
+

@@ -56,15 +56,19 @@
 
 <p><a class="button2" onclick="openForm()" id="b1">Add List</a></p>
 <div>
+    <a href="reminders.html">
     <button style="font-size: 50px;" id="b1" class="icon-button">
         <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>Homework</textarea></label></span>
 <!--        <label id="label" for="b1"><textarea>Homework</textarea></label>-->
     </button>
+    </a>
 </div>
 <div>
+    <a href="reminders.html">
     <button style="font-size: 50px;" id="b1" class="icon-button">
         <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>English</textarea></label></span>
     </button>
+    </a>
 </div>
 
 <div class="form-popup" id="form">
@@ -95,8 +99,6 @@
             };
 
             function createList(text) {
-                var newDiv = document.createElement('div');
-
 
                 // var newButton = document.createElement('textarea');
                 // newButton.innerText = text;
@@ -119,22 +121,8 @@
 
                 // Append the button to the document body
                 document.body.appendChild(button);
-                document.body.appendChild(newButton);
-                function createDiv() {
-                    // Create the div element
-                    var div = document.createElement('div');
 
-                    // Set some attributes and styles for the div
-                    div.id = 'div';
-                    div.classList.add('class');
-                    div.style.width = '200px';
-                    div.style.height = '200px';
-                    div.style.backgroundColor = 'blue';
-                    div.appendChild(button);
-                    div.appendChild(newButton);
-                    document.body.appendChild(div);
-
-                }
+                //
 
 
             }

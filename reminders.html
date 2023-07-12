@@ -56,8 +56,8 @@
             <textarea id="des">Finish geography homework</textarea>
         </div>
         <div>
-            <input type="checkbox" id="hideCheckbox" onchange="toggleDivVisibility()">
-            <label for="hideCheckbox">Finished</label>
+            <input type="checkbox" id="finish" onchange="finish()">
+            <label for="finish">Finished</label>
         </div>
     </div>
 </div>
@@ -71,13 +71,14 @@
 </style>
 
 <script>
-    function toggleDivVisibility() {
-        var hideCheckbox = document.getElementById('hideCheckbox');
+    function finish() {
+        var hideCheckbox = document.getElementById('finish');
         var myDiv = document.getElementById('myDiv');
 
         if (hideCheckbox.checked) {
             myDiv.style.display = 'none';
-        } else {
+        }
+        else {
             myDiv.style.display = 'block';
         }
     }
@@ -124,6 +125,9 @@
     <form class="form-container">
         <h1>Login</h1>
 
+        <label for="date">Due Date</label>
+        <input type="date" id="date" name="date">
+
         <label for="des">Description</label>
         <input type="text" placeholder="Description:" id="desc" required>
 
@@ -138,33 +142,24 @@
                 event.preventDefault(); // Prevent form submission
 
                 var name = document.getElementById('desc').value;
-                createList(name);
+                createDiv();
             };
 
-            function createList(text) {
+            function createDiv() {
+                // Create the main div
                 var div = document.createElement('div');
 
-                var due = document.createElement('p');
-                var date = document.createElement('textarea');
-                label.innerText = 'Due date';
-                p.style.fontSize = '50px';
+                // Create the first textarea
+                var textarea1 = document.createElement('textarea');
+                div.appendChild(textarea1);
 
-                // Append the icon and label to the button
-                div.appendChild(due);
-                div.appendChild(date);
-                // button.style.marginRight = '15px';
-                saveButtonValue(text);
-                closeForm();
+                // Create the second textarea
+                var textarea2 = document.createElement('textarea');
+                div.appendChild(textarea2);
 
-                // Append the button to the document body
+                // Append the div to the document body or any other desired parent element
                 document.body.appendChild(div);
-
-                //
-
-
             }
-
-        });
     </script>
 
 </div>

@@ -72,6 +72,7 @@
                 <input type="password" id="pd" name="pd" placeholder="Your password" required>
 
                 <button  onclick="handleAuthClick()">Login</button>
+                <button  >Sign up</button>
 
                 <!--button id="authorize_button" onclick="handleAuthClick()">Authorize</button-->
                 <!--button id="signout_button" onclick="handleSignoutClick()">Sign Out</button-->
@@ -122,55 +123,7 @@
                     }
 
                 }
-                // function handleAdd() {
-                //     var username = document.getElementById("un").value;
-                //     var password = document.getElementById("pd").value;
 
-                //     // Construct the data to be added
-                //     var rowData = [username, password];
-
-                //     // Call the function to add data to Google Sheets
-                //     addToGoogleSheets(rowData);
-                // }
-
-                // function addToGoogleSheets(rowData) {
-                //     // You would need to replace 'SPREADSHEET_ID' with the actual ID of your Google Sheets document
-                //     var spreadsheetId = 'SPREADSHEET_ID';
-
-                //     // You would also need to set up and authorize the Google Sheets API
-                //     // Here, we'll assume you have already done that and have the access token available
-                //     var accessToken = 'YOUR_ACCESS_TOKEN';
-
-                //     // Define the range where you want to add the data (e.g., 'Sheet1!A1:B1')
-                //     var range = 'Sheet1!A1:B1';
-
-                //     // Construct the request payload
-                //     var request = {
-                //         method: 'POST',
-                //         headers: {
-                //             'Authorization': 'Bearer ' + accessToken,
-                //             'Content-Type': 'application/json'
-                //         },
-                //         body: JSON.stringify({
-                //             values: [rowData]
-                //         })
-                //     };
-
-                //     // Make the API call to append the data to the sheet
-                //     fetch(`'1LrHwJn76RsdX_cYXotcZyRdkBT2pLyGFawQECmcJo60'${spreadsheetId}/values/${range}:append?valueInputOption=USER_ENTERED`, request)
-                //         .then(function (response) {
-                //             if (response.status === 200) {
-                //                 window.location = "home.html";
-                //             } else {
-                //                 alert("An error occurred while adding the data to Google Sheets.");
-                //             }
-                //         })
-                //         .catch(function (error) {
-                //             alert("An error occurred while adding the data to Google Sheets: " + error);
-                //         });
-                // }
-
-                // }
 
             </script>
         </div>

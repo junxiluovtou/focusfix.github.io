@@ -19,11 +19,154 @@
     <a class="nav-link" href="addedlist.html"><span id="storedValue"></span></a>
 </nav1>
 
-<h1>Tasks</h1>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var storedValue = localStorage.getItem('buttonValue');
         document.getElementById('storedValue').innerText = storedValue;
     });
 </script>
+
+<h1>Tasks</h1>
+
+<style>
+    h1{
+        margin-top: 70px;
+    }
+</style>
+<style>
+    .form-popup {
+        display: none;
+        position: fixed;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+</style>
+
+<div id="myDiv">
+    <h2>Homework</h2>
+    <div style="display: flex;">
+        <div style="display: flex; align-items: center;">
+            <label style="color:#37689b" for="due">Due date: </label>
+            <textarea id="due">12/6/23</textarea>
+        </div>
+        <div style="display: flex; align-items: center;">
+            <label style="color:#37689b" for="des">Description: </label>
+            <textarea id="des">Finish geography homework</textarea>
+        </div>
+        <div>
+            <input type="checkbox" id="hideCheckbox" onchange="toggleDivVisibility()">
+            <label for="hideCheckbox">Finished</label>
+        </div>
+    </div>
+</div>
+
+<style>
+    #myDiv {
+        display: block;
+        padding: 10px;
+        background-color: #a2cdf5;
+    }
+</style>
+
+<script>
+    function toggleDivVisibility() {
+        var hideCheckbox = document.getElementById('hideCheckbox');
+        var myDiv = document.getElementById('myDiv');
+
+        if (hideCheckbox.checked) {
+            myDiv.style.display = 'none';
+        } else {
+            myDiv.style.display = 'block';
+        }
+    }
+</script>
+
+<script>
+    function openForm() {
+        document.getElementById("form").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("form").style.display = "none";
+    }
+</script>
+<script>
+    function myFun() {
+        // Create a new button element
+        var button = document.createElement('button');
+
+        // Set the button text
+        button.innerText = 'Click Me';
+
+        // Assign an onclick event handler
+        button.onclick = function() {
+            alert('Button clicked!');
+        };
+
+        // Append the button to the document body
+        document.body.appendChild(button);
+    }
+</script>
+
+
+<p><a class="button2" onclick="openForm()" id="b1"><span class="fas fa-plus"></span> Add Task</a></p>
+
+<script>
+    function saveButtonValue(buttonValue) {
+        localStorage.setItem('buttonValue', buttonValue);
+    }
+</script>
+
+
+<div class="form-popup" id="form">
+    <form class="form-container">
+        <h1>Login</h1>
+
+        <label for="des">Description</label>
+        <input type="text" placeholder="Description:" id="desc" required>
+
+        <input type="submit" value="Submit" />
+        <button type="button" class="button" onclick="closeForm()">Cancel</button>
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('form');
+
+            form.onsubmit = function(event) {
+                event.preventDefault(); // Prevent form submission
+
+                var name = document.getElementById('desc').value;
+                createList(name);
+            };
+
+            function createList(text) {
+                var div = document.createElement('div');
+
+                var due = document.createElement('p');
+                var date = document.createElement('textarea');
+                label.innerText = 'Due date';
+                p.style.fontSize = '50px';
+
+                // Append the icon and label to the button
+                div.appendChild(due);
+                div.appendChild(date);
+                // button.style.marginRight = '15px';
+                saveButtonValue(text);
+                closeForm();
+
+                // Append the button to the document body
+                document.body.appendChild(div);
+
+                //
+
+
+            }
+
+        });
+    </script>
+
+</div>
+
 

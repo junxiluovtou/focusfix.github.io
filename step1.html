@@ -33,23 +33,7 @@
         document.getElementById("form").style.display = "none";
     }
 </script>
-<script>
-    function myFun() {
-        // Create a new button element
-        var button = document.createElement('button');
 
-        // Set the button text
-        button.innerText = 'Click Me';
-
-        // Assign an onclick event handler
-        button.onclick = function() {
-            alert('Button clicked!');
-        };
-
-        // Append the button to the document body
-        document.body.appendChild(button);
-    }
-</script>
 
 
 <p><a class="button2" onclick="openForm()" id="b1"><span class="fas fa-plus"></span> Add List</a></p>
@@ -95,7 +79,7 @@
             var form = document.getElementById('form');
 
             form.onsubmit = function(event) {
-                event.preventDefault(); // Prevent form submission
+                event.preventDefault();
 
                 var name = document.getElementById('name').value;
                 createList(name);
@@ -109,21 +93,20 @@
                 icon.classList.add('fas', 'fa-file-alt');
                 icon.style.fontSize = '50px';
 
-                // Create the label element
+
                 var label = document.createElement('textarea');
                 label.innerText = text;
 
-                // Append the icon and label to the button
+
                 button.appendChild(icon);
                 button.appendChild(label);
                 button.style.marginRight = '15px';
                 saveButtonValue(text);
                 closeForm();
 
-                // Append the button to the document body
+
                 document.body.appendChild(button);
 
-                //
 
 
             }

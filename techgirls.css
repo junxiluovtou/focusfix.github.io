@@ -123,7 +123,7 @@ nav {
     background-color:  #70a2db;
 }
 .nav-link:hover{
-    background-color:  #70a2db;
+    background-color: #37689b;
 }
 
 .link{
@@ -297,7 +297,15 @@ div.form-popup {
     background-color: #37689b;
 }
 
-.nav1{
-    background-color: #37689b;
+nav1{
+    background-color: #70a2db;
+    text-align:center;
+    position:fixed;
+    top:0;
+    left:300px;
+    right:0;
 }
 
+button{
+    background-color: #c0e7ff;
+}

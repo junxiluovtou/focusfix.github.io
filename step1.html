@@ -13,121 +13,123 @@
 
 </style>
 
-<body>
+<div>
     <div id = "turn">please rotate your mobile</div>
-    <div id = "contents">
-    <nav>
-        <h1><span class="fas fa-bars"></span>   Menu</h1>
-        <a class="nav-link" href="step1.html"><span class="fas fa-home"></span> Home</a>
-        <a class="nav-link" href="home.html"><span class="	fas fa-bookmark"></span> Landing Page </a>
-        <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
-        <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
-        <a class="nav-link" href="timetable.html"><span class="	fas fa-calendar-alt"></span> Calendar</a>
-        <a class="nav-link" href="PDF%20Scanner.html"><span class="	fas fa-file-upload"></span> PDF Scanner</a>
-        <a class="nav-link" href="premium.html"><span class="far fa-thumbs-up"></span> Premium Subscription</a>
+        <div id = "contents">
+        <nav>
+            <h1><span class="fas fa-bars"></span>   Menu</h1>
+            <a class="nav-link" href="step1.html"><span class="fas fa-home"></span> Home</a>
+            <a class="nav-link" href="home.html"><span class="	fas fa-bookmark"></span> Landing Page </a>
+            <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
+            <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
+            <a class="nav-link" href="timetable.html"><span class="	fas fa-calendar-alt"></span> Calendar</a>
+            <a class="nav-link" href="PDF%20Scanner.html"><span class="	fas fa-file-upload"></span> PDF Scanner</a>
+            <a class="nav-link" href="premium.html"><span class="far fa-thumbs-up"></span> Premium Subscription</a>
 
-    </nav>
+        </nav>
 
-    <style>
-        .form-popup {
-            display: none;
-            position: fixed;
-            border: 3px solid #f1f1f1;
-            z-index: 9;
-        }
-    </style>
-    <h2>HomePage</h2>
-
-
-    <script>
-        function openForm() {
-            document.getElementById("form").style.display = "block";
-        }
-
-        function closeForm() {
-            document.getElementById("form").style.display = "none";
-        }
-    </script>
+        <style>
+            .form-popup {
+                display: none;
+                position: fixed;
+                border: 3px solid #f1f1f1;
+                z-index: 9;
+            }
+        </style>
+        <h2>HomePage</h2>
 
 
-
-    <p><a class="button2" onclick="openForm()" id="b1"><span class="fas fa-plus"></span> Add List</a></p>
-    <div>
-        <a href="reminders.html">
-        <button style="font-size: 50px;" id="b1" class="icon-button">
-            <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>Homework</textarea></label></span>
-    <!--        <label id="label" for="b1"><textarea>Homework</textarea></label>-->
-        </button>
-        </a>
-    </div>
-    <div>
-        <button style="font-size: 50px;" id="b1" class="icon-button">
-            <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>English</textarea></label></span>
-        </button>
-    </div>
-
-    <script>
-        function saveButtonValue(buttonValue) {
-            localStorage.setItem('buttonValue', buttonValue);
-        }
-    </script>
-
-
-    <div class="form-popup" id="form">
-        <form class="form-container">
-            <h1>Login</h1>
-
-            <label for="name">Name*</label>
-            <input type="text" placeholder="Name:" id="name" required>
-
-            <label for="date">Due Date</label>
-            <input type="date" id="date" name="date">
-
-            <label for="des">Description</label>
-            <input type="text" placeholder="Description:" id="des">
-
-            <input type="submit" value="Submit" />
-            <button type="button" class="button" onclick="closeForm()">Cancel</button>
-        </form>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var form = document.getElementById('form');
+            function openForm() {
+                document.getElementById("form").style.display = "block";
+            }
 
-                form.onsubmit = function(event) {
-                    event.preventDefault();
-
-                    var name = document.getElementById('name').value;
-                    createList(name);
-                };
-
-                function createList(text) {
-                    var button = document.createElement('button');
-
-
-                    var icon = document.createElement('i');
-                    icon.classList.add('fas', 'fa-file-alt');
-                    icon.style.fontSize = '50px';
-
-
-                    var label = document.createElement('textarea');
-                    label.innerText = text;
-
-
-                    button.appendChild(icon);
-                    button.appendChild(label);
-                    button.style.marginRight = '15px';
-                    saveButtonValue(text);
-                    closeForm();
-
-
-                    document.body.appendChild(button);
-
-
-
-                }
-
-            });
+            function closeForm() {
+                document.getElementById("form").style.display = "none";
+            }
         </script>
 
-    </div>
-    </div>
+
+
+        <p><a class="button2" onclick="openForm()" id="b1"><span class="fas fa-plus"></span> Add List</a></p>
+        <div>
+            <a href="reminders.html">
+            <button style="font-size: 50px;" id="b1" class="icon-button">
+                <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>Homework</textarea></label></span>
+        <!--        <label id="label" for="b1"><textarea>Homework</textarea></label>-->
+            </button>
+            </a>
+        </div>
+        <div>
+            <button style="font-size: 50px;" id="b1" class="icon-button">
+                <span class="fas fa-file-alt" <label id="label" for="b1"><textarea>English</textarea></label></span>
+            </button>
+        </div>
+
+        <script>
+            function saveButtonValue(buttonValue) {
+                localStorage.setItem('buttonValue', buttonValue);
+            }
+        </script>
+
+
+        <div class="form-popup" id="form">
+            <form class="form-container">
+                <h1>Login</h1>
+
+                <label for="name">Name*</label>
+                <input type="text" placeholder="Name:" id="name" required>
+
+                <label for="date">Due Date</label>
+                <input type="date" id="date" name="date">
+
+                <label for="des">Description</label>
+                <input type="text" placeholder="Description:" id="des">
+
+                <input type="submit" value="Submit" />
+                <button type="button" class="button" onclick="closeForm()">Cancel</button>
+            </form>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var form = document.getElementById('form');
+
+                    form.onsubmit = function(event) {
+                        event.preventDefault();
+
+                        var name = document.getElementById('name').value;
+                        createList(name);
+                    };
+
+                    function createList(text) {
+                        var button = document.createElement('button');
+
+
+                        var icon = document.createElement('i');
+                        icon.classList.add('fas', 'fa-file-alt');
+                        icon.style.fontSize = '50px';
+
+
+                        var label = document.createElement('textarea');
+                        label.innerText = text;
+
+
+                        button.appendChild(icon);
+                        button.appendChild(label);
+                        button.style.marginRight = '15px';
+                        saveButtonValue(text);
+                        closeForm();
+
+
+                        document.body.appendChild(button);
+
+
+
+                    }
+
+                });
+            </script>
+
+        </div>
+        </div>
+</div>
+</body>

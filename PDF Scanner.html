@@ -1,56 +1,72 @@
 <link rel="stylesheet" href="techgirls.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-
-<nav>
-    <h1><span class="fas fa-bars"></span>   Menu</h1>
-    <a class="nav-link" href="step1.html"><span class="fas fa-home"></span> Home</a>
-    <a class="nav-link" href="home.html"><span class="	fas fa-bookmark"></span> Landing Page </a>
-    <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
-    <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
-    <a class="nav-link" href="timetable.html"><span class="	fas fa-calendar-alt"></span> Calendar</a>
-    <a class="nav-link" href="PDF%20Scanner.html"><span class="	fas fa-file-upload"></span> PDF Scanner</a>
-    <a class="nav-link" href="premium.html"><span class="far fa-thumbs-up"></span> Premium Subscription</a>
-
-</nav>
-
-<h2> PDF Scanner </h2>
-<p> Hold your phone camera up to a PDF and click to scan, it will be automatically uploaded here!</p>
-
-<a class="button2" id="b1" href="PDFScannerDemo.html">PDF Scanner</a>
-
-<p> Recently uploaded PDF's:</p>
-
-<a href="0.jpg"><img src="0.jpg"></a>
-<div>
-    <input type="file" id="fileInput" accept="image/*" multiple>
-    <button onclick="uploadImages()">Upload</button>
-    <div id="imageContainer"></div>
-</div>
-
-<script>
-    function uploadImages() {
-        var fileInput = document.getElementById('fileInput');
-        var imageContainer = document.getElementById('imageContainer');
-        var files = fileInput.files;
-
-        imageContainer.innerHTML = '';
-
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            var reader = new FileReader();
-
-            reader.onload = function(event) {
-                var imageURL = event.target.result;
-
-                var imageElement = document.createElement('img');
-                imageElement.src = imageURL;
-                imageElement.classList.add('uploaded-image');
-
-                imageContainer.appendChild(imageElement);
-            };
-
-            reader.readAsDataURL(file);
-        }
+<style>
+    @media only screen and (orientation:landscape){
+        #contents { display:block; }
+        #turn { display: none; }
+    }
+    @media only screen and (orientation:portrait){
+        #contents {display:none;}
+        #turn {display:block;}
     }
 
-</script>
+</style>
+
+<body>
+<div id = "turn">please rotate your mobile</div>
+<div id = "contents">
+
+    <nav>
+        <h1><span class="fas fa-bars"></span>   Menu</h1>
+        <a class="nav-link" href="step1.html"><span class="fas fa-home"></span> Home</a>
+        <a class="nav-link" href="home.html"><span class="	fas fa-bookmark"></span> Landing Page </a>
+        <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
+        <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
+        <a class="nav-link" href="timetable.html"><span class="	fas fa-calendar-alt"></span> Calendar</a>
+        <a class="nav-link" href="PDF%20Scanner.html"><span class="	fas fa-file-upload"></span> PDF Scanner</a>
+        <a class="nav-link" href="premium.html"><span class="far fa-thumbs-up"></span> Premium Subscription</a>
+
+    </nav>
+
+    <h2> PDF Scanner </h2>
+    <p> Hold your phone camera up to a PDF and click to scan, it will be automatically uploaded here!</p>
+
+    <a class="button2" id="b1" href="PDFScannerDemo.html">PDF Scanner</a>
+
+    <p> Recently uploaded PDF's:</p>
+
+    <a href="0.jpg"><img src="0.jpg"></a>
+    <div>
+        <input type="file" id="fileInput" accept="image/*" multiple>
+        <button onclick="uploadImages()">Upload</button>
+        <div id="imageContainer"></div>
+    </div>
+
+    <script>
+        function uploadImages() {
+            var fileInput = document.getElementById('fileInput');
+            var imageContainer = document.getElementById('imageContainer');
+            var files = fileInput.files;
+
+            imageContainer.innerHTML = '';
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    var imageURL = event.target.result;
+
+                    var imageElement = document.createElement('img');
+                    imageElement.src = imageURL;
+                    imageElement.classList.add('uploaded-image');
+
+                    imageContainer.appendChild(imageElement);
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+    </script>
+</div>

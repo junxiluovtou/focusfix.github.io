@@ -6,8 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="869660c5-3cbb-48b0-ba1c-6fbe1f0b9478" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDF Scanner.html" beforeDir="false" afterPath="$PROJECT_DIR$/PDF Scanner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PDFScannerDemo.html" beforeDir="false" afterPath="$PROJECT_DIR$/PDFScannerDemo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Purchased.html" beforeDir="false" afterPath="$PROJECT_DIR$/Purchased.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/aboutus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music.html" beforeDir="false" afterPath="$PROJECT_DIR$/music.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/premium.html" beforeDir="false" afterPath="$PROJECT_DIR$/premium.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reminders.html" beforeDir="false" afterPath="$PROJECT_DIR$/reminders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/step1.html" beforeDir="false" afterPath="$PROJECT_DIR$/step1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/timetable.html" beforeDir="false" afterPath="$PROJECT_DIR$/timetable.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +78,7 @@
       <workItem from="1688946764865" duration="3185000" />
       <workItem from="1688949962866" duration="4671000" />
       <workItem from="1690168068283" duration="1837000" />
-      <workItem from="1690173973310" duration="2094000" />
+      <workItem from="1690173973310" duration="2742000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1687155511831</created>
@@ -204,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690174737893</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="last commit">
+      <created>1690176135064</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690176135064</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

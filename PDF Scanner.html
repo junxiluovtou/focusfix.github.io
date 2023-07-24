@@ -31,16 +31,18 @@
     <h2> PDF Scanner </h2>
     <p> Hold your phone camera up to a PDF and click to scan, it will be automatically uploaded here!</p>
 
-    <a class="button2" id="b1" href="PDFScannerDemo.html">PDF Scanner</a>
-
-    <p> Recently uploaded PDF's:</p>
-
-    <a href="0.jpg"><img src="0.jpg"></a>
     <div>
         <input type="file" id="fileInput" accept="image/*" multiple>
         <button onclick="uploadImages()">Upload</button>
         <div id="imageContainer"></div>
     </div>
+
+    <a href="0.jpg"><img src="0.jpg"></a>
+<!--    <div>-->
+<!--        <input type="file" id="fileInput" accept="image/*" multiple>-->
+<!--        <button onclick="uploadImages()">Upload</button>-->
+<!--        <div id="imageContainer"></div>-->
+<!--    </div>-->
 
     <script>
         function uploadImages() {

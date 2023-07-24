@@ -1,21 +1,162 @@
+<link rel="stylesheet" href="techgirls.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+<style>
+    @media only screen and (orientation:landscape){
+        #contents { display:block; }
+        #turn { display: none; }
+    }
+    @media only screen and (orientation:portrait){
+        #contents {display:none;}
+        #turn {display:block;}
+    }
+
+</style>
+
+<body>
+<div id = "turn">please rotate your mobile</div>
+<div id = "contents">
+
+    <nav>
+        <h1><span class="fas fa-bars"></span>   Menu</h1>
+        <a class="nav-link" href="step1.html"><span class="fas fa-home"></span> Home</a>
+        <a class="nav-link" href="home.html"><span class="	fas fa-bookmark"></span> Landing Page </a>
+        <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
+        <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
+        <a class="nav-link" href="timetable.html"><span class="	fas fa-calendar-alt"></span> Calendar</a>
+        <a class="nav-link" href="PDF%20Scanner.html"><span class="	fas fa-file-upload"></span> PDF Scanner</a>
+        <a class="nav-link" href="premium.html"><span class="far fa-thumbs-up"></span> Premium Subscription</a>
+
+    </nav>
+
+    <nav1>
+        <a class="active nav-link" href="reminders.html">Homework</a>
+        <a class="nav-link" href="english.html">English</a>
+        <a class="nav-link" href="addedlist.html"><span id="storedValue"></span></a>
+    </nav1>
 
 
-<nav>
-    <!--    <a class="nav-link" href="step1.html"><span class="fas fa-solid fa-gear"></span> Settings</a>-->
-    <!--    <a class="nav-link" href="step1.html"><span class="fas fa-sharp fa-solid fa-volume"></span> Sound</a>-->
-    <h1>Menu</h1>
-    <a class="nav-link" href="step1.html"><span class="fa-solid fa-house"></span> Home</a>
-    <a class="nav-link" href="settings.html"><span class="fa fa-cog fa-spin gear-1"></span> Settings</a>
-    <a class="nav-link" href="music.html"><span class="fas fa-solid fa-volume-up"></span> Music</a>
-    <a class="nav-link" href="timetable.html"><span class="fas fa-regular fa-calendar-days"></span> Calendar</a>
-    <a class="nav-link" href="PDF%20Scanner.html">PDF Scanner</a>
-    <a class="nav-link" href="home.html">Landing Page </a>
-    <a class="nav-link" href="premium.html"> Premium Subscription</a>
 
-</nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var storedValue = localStorage.getItem('buttonValue');
+            document.getElementById('storedValue').innerText = storedValue;
+        });
+    </script>
+
+    <h1>Tasks</h1>
+
+    <style>
+        h1{
+            margin-top: 70px;
+        }
+    </style>
+    <style>
+        .form-popup {
+            display: none;
+            position: fixed;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+    </style>
+
+    <div id="myDiv">
+        <h2>Homework</h2>
+        <div style="display: flex;">
+            <div style="display: flex; align-items: center;">
+                <label style="color:#37689b" for="due">Due date: </label>
+                <textarea id="due">21/7/23</textarea>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <label style="color:#37689b" for="des">Description: </label>
+                <textarea id="des">Finish geography homework</textarea>
+            </div>
+            <div>
+                <input type="checkbox" id="finish" onchange="finish()">
+                <label for="finish">Finished</label>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #myDiv {
+            display: block;
+            padding: 10px;
+            background-color: #a2cdf5;
+        }
+    </style>
+
+    <script>
+        function finish() {
+            var hideCheckbox = document.getElementById('finish');
+            var myDiv = document.getElementById('myDiv');
+
+            if (hideCheckbox.checked) {
+                myDiv.style.display = 'none';
+            }
+            else {
+                myDiv.style.display = 'block';
+            }
+        }
+    </script>
+
+    <script>
+        function openForm() {
+            document.getElementById("form").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("form").style.display = "none";
+        }
+    </script>
 
 
-<div>
-    <label for="date">Date observed*</label>
-    <input type="date" id="date" name="date">
+    <p><a class="button2" onclick="openForm()" id="b1"><span class="fas fa-plus"></span> Add Task</a></p>
+
+
+
+    <div class="form-popup" id="form">
+        <form class="form-container">
+            <h1>Login</h1>
+
+            <label for="date">Due Date</label>
+            <input type="date" id="date" name="date">
+
+            <label for="des">Description</label>
+            <input type="text" placeholder="Description:" id="desc" required>
+
+            <input type="submit" value="Submit" />
+            <button type="button" class="button" onclick="closeForm()">Cancel</button>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var form = document.getElementById('form');
+
+                form.onsubmit = function(event) {
+                    event.preventDefault();
+
+                    var name = document.getElementById('desc').value;
+                    createDiv();
+                };
+
+                function createDiv() {
+
+                    var div = document.createElement('div');
+
+                    /
+                    var textarea1 = document.createElement('textarea');
+                    div.appendChild(textarea1);
+
+
+                    var textarea2 = document.createElement('textarea');
+                    div.appendChild(textarea2);
+
+
+                    document.body.appendChild(div);
+                }
+        </script>
+
+    </div>
+
+
 </div>

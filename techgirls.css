@@ -66,6 +66,23 @@ label {
     background: #70a2db;
     color: white;
 }
+
+.input {
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px 40px;
+    background: #70a2db;
+    color: white;
+    border-radius: 4px;
+    border: 2px solid #70a2db;
+}
+
+.input:hover {
+    border-color: #37689b;
+    background: #70a2db;
+    color: white;
+}
 .button2 {
     border: none;
     text-decoration: none;
@@ -268,7 +285,7 @@ span.psw {
 
 div.form-popup {
     width: 600px;
-    height: 150px;
+    height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
     text-align: center;
